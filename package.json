@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "tsc --emitDeclarationOnly && esbuild index.ts --bundle --minify --sourcemap --outfile=index.js",
-    "exmples": "http-server -o ./examples/simple.html"
+    "examples": "http-server -o ./examples/simple.html"
   },
   "dependencies": {
     "lit": "2.x"
