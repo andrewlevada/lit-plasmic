@@ -7,6 +7,12 @@
     "plasmic",
     "web-component"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewlevada/lit-plasmic.git"
+  },
+  "homepage": "https://github.com/andrewlevada/lit-plasmic",
+  "license": "Unlicense",
   "types": "index.d.ts",
   "type": "module",
   "main": "index.js",
