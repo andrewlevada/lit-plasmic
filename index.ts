@@ -32,7 +32,7 @@ export class PlasmicComponent extends LitElement {
       return;
     }
 
-    fetch(`https://codegen.plasmic.app/api/v1/loader/html/preview/${this.projectId}/${this.name}?hydrate=1&embedHydrate=1`, {
+    fetch(`https://codegen.plasmic.app/api/v1/loader/html/published/${this.projectId}/${this.name}?hydrate=1&embedHydrate=1`, {
       headers: { "x-plasmic-api-project-tokens": this.publicApiToken },
     }).then(res => res.json()).then(result => {
       this.fetchedHtml = result.html;

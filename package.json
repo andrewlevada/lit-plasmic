@@ -1,10 +1,11 @@
 {
   "name": "lit-plasmic",
-  "description": "",
+  "description": "Plasmic integration as web component",
   "version": "0.1.0",
   "keywords": [
     "lit",
-    "plasmic"
+    "plasmic",
+    "web-component"
   ],
   "types": "index.d.ts",
   "type": "module",
