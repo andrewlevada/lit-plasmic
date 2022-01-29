@@ -1,5 +1,7 @@
 # Plasmic integration as Web component
 
+![npm](https://img.shields.io/npm/v/lit-plasmic)
+
 This web component is a simple way to integrate designs from [Plasmic](https://www.plasmic.app/) into your website.
 It is implemented using [lit](https://lit.dev/). Therefore, this component does not require any additional scripts or packages, so it can be used even on plain html page.
 
@@ -25,5 +27,5 @@ import "lit-plasmic";
 
 2. For usage in html files:
 ```html
-<script>//TODO</script>
+<script src="https://cdn.jsdelivr.net/npm/lit-plasmic/index.min.js" type="module"></script>
 ```
