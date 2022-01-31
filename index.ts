@@ -11,6 +11,8 @@ export class PlasmicComponent extends LitElement {
   @property({ type: String }) publicApiToken!: string;
   @property({ type: String }) name!: string;
   @property({ type: String }) version: Version = "published";
+  @property({ type: Boolean }) hydrate = true;
+  @property({ type: Boolean }) embedHydrate = true;
 
   @state() fetchedHtml: string | null = null;
 
@@ -36,7 +38,11 @@ export class PlasmicComponent extends LitElement {
       return;
     }
 
-    fetch(`https://codegen.plasmic.app/api/v1/loader/html/${this.version}/${this.projectId}/${this.name}?hydrate=1&embedHydrate=1`, {
+    let url = "https://codegen.plasmic.app/api/v1/loader/html";
+    url += `/${this.version}/${this.projectId}/${this.name}`;
+    url += `?hydrate=${this.hydrate ? 1 : 0}&embedHydrate=${this.embedHydrate ? 1 : 0}`;
+
+    fetch(url, {
       headers: { "x-plasmic-api-project-tokens": this.publicApiToken },
     }).then(res => res.json()).then(result => {
       this.fetchedHtml = result.html;
