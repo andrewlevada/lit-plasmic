@@ -3,11 +3,15 @@ import { html } from "lit/static-html.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { property, state, customElement } from "lit/decorators.js";
 
+export type Version = "published" | "preview";
+
 @customElement("plasmic-component")
 export class PlasmicComponent extends LitElement {
   @property({ type: String }) projectId!: string;
   @property({ type: String }) publicApiToken!: string;
   @property({ type: String }) name!: string;
+  @property({ type: String }) version: Version = "published";
+
   @state() fetchedHtml: string | null = null;
 
   render(): TemplateResult {
@@ -32,7 +36,7 @@ export class PlasmicComponent extends LitElement {
       return;
     }
 
-    fetch(`https://codegen.plasmic.app/api/v1/loader/html/published/${this.projectId}/${this.name}?hydrate=1&embedHydrate=1`, {
+    fetch(`https://codegen.plasmic.app/api/v1/loader/html/${this.version}/${this.projectId}/${this.name}?hydrate=1&embedHydrate=1`, {
       headers: { "x-plasmic-api-project-tokens": this.publicApiToken },
     }).then(res => res.json()).then(result => {
       this.fetchedHtml = result.html;
