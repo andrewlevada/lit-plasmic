@@ -29,3 +29,18 @@ import "lit-plasmic";
 ```html
 <script src="https://cdn.jsdelivr.net/npm/lit-plasmic/index.min.js" type="module"></script>
 ```
+
+## API
+
+Here is a table of accepted attributes. Detailed descriptions can be found in [Plasmic docs here](https://docs.plasmic.app/learn/rest-api).
+
+| Attribute name              | Type                     | Default value |
+|-----------------------------|--------------------------|---------------|
+| name (*Required*)           | String                   | -             |
+| projectId (*Required*)      | String                   | -             |
+| publicApiToken (*Required*) | String                   | -             |
+| version                     | "published" or "preview" | published     |
+| hydrate                     | Boolean                  | true          |
+| embedHydrate                | Boolean                  | true          |
+| componentProps              | Object                   | -             |
+| globalVariants              | Array                    | -             |
