@@ -1,7 +1,7 @@
 {
   "name": "lit-plasmic",
   "description": "Plasmic integration as web component",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "keywords": [
     "lit",
     "plasmic",
