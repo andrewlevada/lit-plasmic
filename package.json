@@ -17,10 +17,11 @@
   "type": "module",
   "main": "index.js",
   "module": "index.js",
-  "exports": [
-    "./index.js",
-    "./index.ts"
-  ],
+  "exports": {
+    ".": "./index.js",
+    "./index.js": "./index.js",
+    "./index.ts": "./index.ts"
+  },
   "scripts": {
     "build": "tsc --emitDeclarationOnly && esbuild index.ts --bundle --minify --sourcemap --outfile=index.js",
     "examples": "http-server -o ./examples/simple.html"
