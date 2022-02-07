@@ -1,7 +1,7 @@
 {
   "name": "lit-plasmic",
   "description": "Plasmic integration as web component",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "keywords": [
     "lit",
     "plasmic",
@@ -17,12 +17,10 @@
   "type": "module",
   "main": "index.js",
   "module": "index.js",
-  "exports": {
-    ".": {
-      "esbuild": "./index.ts",
-      "default": "./index.js"
-    }
-  },
+  "exports": [
+    "./index.js",
+    "./index.ts"
+  ],
   "scripts": {
     "build": "tsc --emitDeclarationOnly && esbuild index.ts --bundle --minify --sourcemap --outfile=index.js",
     "examples": "http-server -o ./examples/simple.html"
