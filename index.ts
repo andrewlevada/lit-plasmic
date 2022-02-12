@@ -4,6 +4,7 @@ import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { property, state, customElement } from "lit/decorators.js";
 
 export type Version = "published" | "preview";
+export type PlasmicLoadedEvent = "loaded";
 
 @customElement("plasmic-component")
 export class PlasmicComponent extends LitElement {
@@ -51,5 +52,12 @@ export class PlasmicComponent extends LitElement {
     }).then(res => res.json()).then(result => {
       this.fetchedHtml = result.html;
     }).catch(e => console.error(`Request to plasmic api fetching '${this.name}' component has failed`, e));
+  }
+
+  protected updated(_changedProperties: PropertyValues) {
+    super.updated(_changedProperties);
+    if (_changedProperties.has("fetchedHtml") && this.fetchedHtml)
+      this.dispatchEvent(new CustomEvent("loaded" as PlasmicLoadedEvent,
+          { composed: true, bubbles: true }));
   }
 }
