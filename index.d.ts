@@ -1,6 +1,6 @@
 import { LitElement, PropertyValues, TemplateResult } from "lit";
-export declare type Version = "published" | "preview";
-export declare type PlasmicLoadedEvent = "loaded";
+export type Version = "published" | "preview";
+export type PlasmicLoadedEvent = "loaded";
 export declare class PlasmicComponent extends LitElement {
     projectId: string;
     publicApiToken: string;
