@@ -12,6 +12,7 @@ export declare class PlasmicComponent extends LitElement {
     globalVariants: ArrayLike<any> | null;
     fetchedHtml: string | null;
     render(): TemplateResult;
+    refetchComponent(): void;
     protected firstUpdated(_changedProperties: PropertyValues): void;
     protected updated(_changedProperties: PropertyValues): void;
 }

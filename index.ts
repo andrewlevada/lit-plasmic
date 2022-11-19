@@ -23,9 +23,7 @@ export class PlasmicComponent extends LitElement {
     return html`${this.fetchedHtml ? unsafeHTML(this.fetchedHtml) : ""}`;
   }
 
-  protected firstUpdated(_changedProperties: PropertyValues) {
-    super.firstUpdated(_changedProperties);
-
+  public refetchComponent(): void {
     if (!this.projectId) {
       console.error(`Property projectId is not set in plasmic-component with name '${this.name}'`);
       return;
@@ -52,6 +50,11 @@ export class PlasmicComponent extends LitElement {
     }).then(res => res.json()).then(result => {
       this.fetchedHtml = result.html;
     }).catch(e => console.error(`Request to plasmic api fetching '${this.name}' component has failed`, e));
+  }
+
+  protected firstUpdated(_changedProperties: PropertyValues) {
+    super.firstUpdated(_changedProperties);
+    this.refetchComponent();
   }
 
   protected updated(_changedProperties: PropertyValues) {
